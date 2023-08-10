@@ -1,0 +1,38 @@
+aug 10th
+Apache NiFi is composed of various components that work together to facilitate data flow, processing, and integration. Here are the fundamental components of Apache NiFi:
+
+Processor:
+Processors are the core components responsible for ingesting, processing, transforming, routing, and outputting data. They perform specific tasks on the data as it moves through the data flow. NiFi provides a wide range of built-in processors to handle various data operations.
+
+Connection:
+Connections define the flow of data between processors. They represent the links between output ports of one processor and input ports of another. Connections also include back pressure management to ensure controlled data flow between processors.
+
+FlowFile:
+A FlowFile is a fundamental unit of data in NiFi. It represents the data being ingested, processed, or routed through the system. Each FlowFile contains the actual content along with attributes that provide metadata about the data.
+
+Processor Group:
+A Processor Group is a collection of processors, connections, and other components grouped together for organizational and operational purposes. It allows you to encapsulate and manage related components as a single unit.
+
+Controller Service:
+Controller Services provide reusable components that offer functionality to processors and other parts of the data flow. They can be configured globally and used by multiple processors to share resources and configuration settings.
+
+Template:
+Templates allow you to save a snapshot of a portion of your data flow as a reusable template. Templates can be imported/exported to share and replicate data flow configurations.
+
+Input and Output Ports:
+Input Ports and Output Ports allow data to be ingested into and exported from a Processor Group. They provide a way to connect external systems or other NiFi instances.
+
+Funnel:
+Funnels are used to merge data from different connections into a single stream for processing.
+
+Remote Process Group:
+A Remote Process Group allows you to interact with processors running in another NiFi instance, either on the same or a different physical machine. This is useful for managing data flows across distributed environments.
+
+Flow Controller:
+The Flow Controller manages the overall data flow, including starting and stopping processors, scheduling tasks, and coordinating data movement.
+
+Bulletin Board:
+The Bulletin Board displays system-level alerts, notifications, and diagnostic information about processors and components.
+
+Provenance Repository:
+The Provenance Repository stores data lineage and provenance information, enabling you to track the history of data as it flows through NiFi.
