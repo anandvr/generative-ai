@@ -36,3 +36,19 @@ The Bulletin Board displays system-level alerts, notifications, and diagnostic i
 
 Provenance Repository:
 The Provenance Repository stores data lineage and provenance information, enabling you to track the history of data as it flows through NiFi.
+
+
+// Get the Controller Service context
+def context = session.getProcessContext()
+
+// Get the Controller Service by its name
+def controllerService = context.getControllerServiceLookup().getControllerService('YourControllerServiceName')
+
+// Get the property value (assuming the property is named 'databaseName')
+def databaseName = controllerService.getProperty('databaseName').getValue()
+
+// Set the extracted value as an attribute on the flow file
+flowFile = session.putAttribute(flowFile, 'db_name_extracted', databaseName)
+
+// Transfer the flow file to the next processor
+session.transfer(flowFile, REL_SUCCESS)
