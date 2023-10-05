@@ -36,3 +36,91 @@ The Bulletin Board displays system-level alerts, notifications, and diagnostic i
 
 Provenance Repository:
 The Provenance Repository stores data lineage and provenance information, enabling you to track the history of data as it flows through NiFi.
+
+
+// Get the Controller Service context
+def context = session.getProcessContext()
+
+// Get the Controller Service by its name
+def controllerService = context.getControllerServiceLookup().getControllerService('YourControllerServiceName')
+
+// Get the property value (assuming the property is named 'databaseName')
+def databaseName = controllerService.getProperty('databaseName').getValue()
+
+// Set the extracted value as an attribute on the flow file
+flowFile = session.putAttribute(flowFile, 'db_name_extracted', databaseName)
+
+// Transfer the flow file to the next processor
+session.transfer(flowFile, REL_SUCCESS)
+
+
+
+class GroovyProcessor implements Processor {
+
+
+    def REL_SUCCESS = new Relationship.Builder().name("success").description("FlowFiles that were successfully processed").build();
+    def ProcessorLog log
+
+    @Override
+    void initialize(ProcessorInitializationContext context) {
+        log = context.getLogger()
+    }
+
+    @Override
+
+    Set<Relationship> getRelationships() {
+        return [REL_SUCCESS] as Set
+    }
+
+    @Override
+    void onTrigger(ProcessContext context, ProcessSessionFactory sessionFactory) throws ProcessException {
+        try {
+
+            def session = sessionFactory.createSession()
+            def flowFile = session.get()
+            if (!flowFile) return
+            def selectedColumns = ''
+            flowFile = session.write(flowFile,
+                    { inputStream, outputStream ->
+                        String line
+                        final BufferedReader inReader = new BufferedReader(new InputStreamReader(inputStream, 'UTF-8'))
+                        line = inReader.readLine()
+                        String[] header = line?.split(',')
+                        selectedColumns = "${header[1]},${header[2]}"                  
+                        while (line = inReader.readLine()) {
+                            String[] cols = line.split(',')
+                            outputStream.write("${cols[2].capitalize()} ${cols[3].capitalize()}\n".getBytes('UTF-8'))
+                        }
+                    } as StreamCallback)
+
+     flowFile = session.putAttribute(flowFile, "selected.columns", selectedColumns)
+     flowFile = session.putAttribute(flowFile, "filename", "split_cols_invoke.txt")
+            // transfer
+            session.transfer(flowFile, REL_SUCCESS)
+            session.commit()
+        }
+        catch (e) {
+            throw new ProcessException(e)
+        }
+    }
+
+    @Override
+    Collection<ValidationResult> validate(ValidationContext context) { return null }
+
+    @Override
+    PropertyDescriptor getPropertyDescriptor(String name) { return null }
+
+    @Override
+
+    void onPropertyModified(PropertyDescriptor descriptor, String oldValue, String newValue) { }
+
+    @Override
+
+    List<PropertyDescriptor> getPropertyDescriptors() { return null }
+
+    @Override
+
+    String getIdentifier() { return null }
+}
+
+processor = new GroovyProcessor()
