@@ -1,0 +1,46 @@
+slide3
+User
+breifly explain what are code reviews, why do we conduct  and types of reviews
+ChatGPT
+Code Reviews:
+
+Definition:
+Code reviews involve the examination of source code by one or more individuals to identify and rectify errors, ensure adherence to coding standards, and improve overall code quality.
+
+Why Conduct Code Reviews:
+
+Bug Detection: Code reviews help catch bugs and issues early in the development process, reducing the likelihood of defects in the final product.
+
+Knowledge Sharing: They facilitate the sharing of knowledge and best practices among team members, enhancing the overall skill set of the team.
+
+Quality Improvement: By providing constructive feedback, code reviews contribute to improving the overall quality and maintainability of the codebase.
+
+Collaboration: Code reviews foster collaboration within the development team, promoting a culture of continuous improvement and shared responsibility.
+
+Types of Code Reviews:
+
+Pair Programming:
+
+Two developers work together at one workstation.
+Immediate feedback and shared problem-solving.
+Formal/Inspection Reviews:
+
+Planned, formal meetings with multiple participants.
+Typically used in critical or high-assurance projects.
+Asynchronous Reviews:
+
+Conducted without real-time interaction.
+Typically through tools like pull requests in version control systems.
+Tool-Assisted Reviews:
+
+Automated tools are used to assist in the review process.
+Examples include static code analysis tools and code review platforms.
+Over-the-Shoulder Reviews:
+
+Informal, spontaneous reviews.
+One developer looks over the shoulder of another while they explain the code.
+Checklist-Based Reviews:
+
+Reviews conducted using predefined checklists of common issues or criteria.
+Ensures consistency and thorough examination.
+Each type of code review has its own advantages and is suitable for different scenarios. The choice often depends on the project's requirements, the team's preferences, and the nature of the changes being reviewed.
