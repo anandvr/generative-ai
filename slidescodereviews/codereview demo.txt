@@ -1,0 +1,60 @@
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+public class BadCodeExample {
+
+    // Bad coding practices
+    public static void main(String[] args) {
+        // Unnecessary declaration of multiple variables in the same line
+        int x = 5, y = 10, result;
+
+        // Using magic numbers without explanation
+        result = x + y + 15;
+
+        // Inefficient way to concatenate strings
+        String message = "The result is " + result + ".";
+
+        // Printing to the console without using a logger
+        System.out.println(message);
+
+        // Inefficient use of List and Map
+        List<Integer> numbers = new ArrayList<>();
+        for (int i = 0; i < 100000; i++) {
+            numbers.add(i);
+        }
+
+        // Potential performance problem
+        for (Integer number : numbers) {
+            processNumber(number);
+        }
+
+        // Memory problem - unnecessary creation of objects
+        String largeString = "";
+        for (int i = 0; i < 100000; i++) {
+            largeString += "Some text ";
+        }
+
+        // Incorrect use of HashMap
+        Map<String, String> data = new HashMap<>();
+        data.put("key1", "value1");
+        data.put("key2", "value2");
+        data.put("key3", "value3");
+
+        // Accessing elements using iteration instead of direct access
+        for (String key : data.keySet()) {
+            System.out.println("Key: " + key + ", Value: " + data.get(key));
+        }
+    }
+
+    // Method with potential performance problem
+    private static void processNumber(Integer number) {
+        try {
+            // Simulating a time-consuming operation
+            Thread.sleep(10);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+}
