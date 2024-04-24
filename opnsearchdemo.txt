@@ -1,0 +1,24 @@
+Slide1 :History
+
+Launch of OpenSearch (2021):
+OpenSearch was officially announced and released in 2021 as an open-source, community-driven fork of Opensearch. It aims to provide a fully open-source alternative to Elasticsearch with a commitment to open development, transparency, and collaboration.
+OpenSearch retains compatibility with ElasticSearch APIs and features while adopting a more permissive Apache 2.0 license to encourage broader adoption and contribution from the community.
+
+
+Full-text Search: Opensearch provides robust full-text search capabilities, allowing users to perform complex search queries on large volumes of data quickly and efficiently.
+
+Near Real-time Search: Opensearch indexes data in near real-time, making indexed documents available for search almost immediately after they are ingested. This makes it suitable for applications requiring real-time search capabilities, such as log monitoring and analytics.
+
+Multi-tenancy: Opensearch supports multi-tenancy, allowing multiple independent users or applications to use the same cluster securely while keeping their data isolated.
+
+Distributed and Scalable: Opensearch is built on top of a distributed architecture, enabling it to scale horizontally by adding more nodes to the cluster. This allows for handling large datasets and high query loads while maintaining performance and reliability.
+
+Full-text Analysis: Opensearch includes powerful text analysis capabilities, including tokenization, stemming, phonetic analysis, and synonym expansion. This allows for accurate and relevant search results, even when dealing with unstructured text.
+
+Schema-less: Opensearch is schema-less, meaning it can index documents without requiring a predefined schema or data structure. This flexibility allows for handling diverse and evolving data types, making it suitable for use cases with dynamic schemas or unstructured data.
+
+Mapping Templates: Opensearch provides mapping templates that allow users to define custom mappings for specific document patterns or indices. Mapping templates enable users to control the mapping of fields and explicitly define field types, properties, and analyzers.
+
+Auto suggest
+To enable autosuggest, you need to index your data using a specific field mapping that supports completion suggester functionality. Typically, you would create a dedicated field in your document mapping and specify it as a "completion" type field.
+
