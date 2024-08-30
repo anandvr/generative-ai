@@ -1,0 +1,87 @@
+Issue-Related APIs
+Creating an Issue:
+
+API: POST /grc/api/contents
+Description: This API is used to create a new issue by specifying the required fields, such as typeDefinitionId, primaryParentId, name, and description.
+Retrieving an Issue:
+
+API: GET /grc/api/contents/{id}
+Description: This API retrieves the details of a specific issue by its ID, including its fields, associations, and metadata.
+Updating an Issue:
+
+API: PUT /grc/api/contents/{id}
+Description: Used to update the details of an existing issue, such as modifying its fields or associated data.
+Deleting an Issue:
+
+API: DELETE /grc/api/contents/{id}
+Description: Deletes an issue identified by its ID. This operation is final and removes the issue from the system.
+Associating an Issue:
+
+API: POST /grc/api/contents/{id}/associations
+Description: This API creates associations between the issue and other related objects, such as action plans or documents.
+Removing Associations:
+
+API: DELETE /grc/api/contents/{id}/associations?children={id},parents={id}
+Description: Removes specific parent or child associations from an issue.
+Issue Locking:
+
+API: PUT /grc/api/contents/{id}/action/lock
+Description: Locks an issue to prevent further modifications.
+Issue Unlocking:
+
+API: PUT /grc/api/contents/{id}/action/unlock
+Description: Unlocks a previously locked issue.
+Issue Audit Logs:
+
+API: GET /grc/api/contents/{contentId}/auditLogs/fields
+Description: Retrieves the audit logs associated with an issue, detailing changes made to its fields.
+Action Plan-Related APIs
+Creating an Action Plan:
+
+API: POST /grc/api/contents
+Description: Similar to creating an issue, this API is used to create a new action plan by posting the necessary fields.
+Retrieving an Action Plan:
+
+API: GET /grc/api/contents/{id}
+Description: Retrieves details of a specific action plan, including its fields and associated metadata.
+Updating an Action Plan:
+
+API: PUT /grc/api/contents/{id}
+Description: Updates the details of an existing action plan, allowing modifications to fields or associations.
+Deleting an Action Plan:
+
+API: DELETE /grc/api/contents/{id}
+Description: Deletes an action plan identified by its ID from the system.
+Associating an Action Plan:
+
+API: POST /grc/api/contents/{id}/associations
+Description: Creates associations between an action plan and related issues or other entities.
+Removing Associations:
+
+API: DELETE /grc/api/contents/{id}/associations?children={id},parents={id}
+Description: Removes parent or child associations from an action plan.
+Locking an Action Plan:
+
+API: PUT /grc/api/contents/{id}/action/lock
+Description: Locks an action plan to prevent modifications.
+Unlocking an Action Plan:
+
+API: PUT /grc/api/contents/{id}/action/unlock
+Description: Unlocks a previously locked action plan.
+Action Plan Audit Logs:
+
+API: GET /grc/api/contents/{contentId}/auditLogs/fields
+Description: Retrieves the audit logs associated with an action plan, tracking changes made to its fields.
+Shared APIs for Issues and Action Plans
+Copying an Issue or Action Plan:
+
+API: PUT /grc/api/contents/{id}/action/copy
+Description: Copies an existing issue or action plan to a new location or under a different parent.
+Moving an Issue or Action Plan:
+
+API: PUT /grc/api/contents/{id}/action/move
+Description: Moves an issue or action plan from one location to another within the hierarchy.
+Permission Check for Creation:
+
+API: GET /grc/api/contents/{contentId}/permissions/cancreate/{typeId}
+Description: Checks whether the user has the necessary permissions to create a child object, such as an issue or action plan, under a specific parent
