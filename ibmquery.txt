@@ -1,0 +1,17 @@
+query
+
+Subject: Inquiry: Load Balancing Support and Blue-Green Deployment in IBM DB2
+
+Body:
+Dear IBM DB2 Support Team,
+
+We are exploring options to implement a setup similar to a web load balancer for our IBM DB2 database. Specifically, we want to:
+
+Use a single logical database name to abstract the underlying physical servers.
+Attach and detach physical database servers dynamically to support blue-green deployment without service disruption.
+Could you confirm if IBM DB2 supports such a configuration? If yes:
+
+What features or tools (e.g., Data Partitioning Feature, HADR, or others) enable this functionality?
+Are there specific configurations or middleware required to implement this?
+Is there any impact on application-level connections when attaching or detaching physical servers?
+Your guidance on implementing this setup efficiently and any best practices would be greatly appreciated.
