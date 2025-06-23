@@ -1,17 +1,5 @@
-Organizations frequently migrate from Bitbucket to GitHub, even though both are excellent Git hosting platforms. The decision often comes down to strategic alignment with development culture, desired ecosystem integrations, and specific feature sets.
-
-Here are the primary reasons why organizations choose to migrate from Bitbucket to GitHub:
-
-I. Community and Open-Source Focus
-Largest Developer Community: GitHub boasts the largest developer community in the world (over 100 million developers). This means a vast pool of potential collaborators for open-source projects, easier onboarding for new hires already familiar with GitHub, and a wealth of shared knowledge and resources.
-Open-Source Standard: For many, GitHub is synonymous with open-source development. If an organization plans to contribute heavily to open-source or leverage public repositories, GitHub offers unmatched visibility and community engagement. While Bitbucket supports open source, GitHub's reputation and scale in this area are generally superior.
-
-II. Features and Ecosystem
-GitHub Actions (Integrated CI/CD): While Bitbucket has Bitbucket Pipelines, GitHub Actions offers a highly flexible, powerful, and deeply integrated CI/CD solution directly within the GitHub platform. Many developers find GitHub Actions to be more intuitive, with a massive marketplace of pre-built actions for various tasks.
-Broader Marketplace and Integrations: GitHub's Marketplace typically offers a wider and more diverse range of third-party integrations and apps compared to Atlassian Marketplace offerings for Bitbucket. This can lead to a more versatile and customizable development pipeline.
-Advanced Security Features (GitHub Advanced Security - GHAS): GitHub offers a comprehensive suite of security tools built directly into the platform, including:
-Code Scanning: Static Application Security Testing (SAST) to find vulnerabilities in code.
-Secret Scanning: Detects exposed credentials and API keys.
-Dependency Scanning (Dependabot): Automatically identifies and alerts on vulnerable dependencies. While Bitbucket has security features, GitHub's integrated security suite is often seen as more comprehensive and proactive, aligning with "shift-left" security practices.
-GitHub Copilot: As a Microsoft-owned product, GitHub has direct integration with cutting-edge AI coding assistants like GitHub Copilot, which can significantly boost developer productivity.
-User Experience (UX): Many developers find GitHub's user interface and overall experience more intuitive, clean, and developer-friendly, especially for code review workflows, pull requests, and project management features (GitHub Issues, Projects).
+GitHub Automatic Code Review
+What is it?
+Automated checks and analyses of code directly within GitHub.
+Integrates seamlessly into the Pull Request (PR) workflow.
+Aims to identify potential issues (security, bugs, vulnerabilities) before human review.
